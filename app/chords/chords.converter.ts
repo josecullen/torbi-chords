@@ -30,7 +30,9 @@ export class ChordConverter {
         var ret = "";
 
         if ( /"/.test( str ) ){
-            ret = str.match( /"(.*?)"/ )[1];
+            let match:any = str.match( /"(.*?)"/ )
+            
+            ret = match !== null ? match[1] : ""
             console.log('str',str,'ret', ret)
         } else {
            ret = str;

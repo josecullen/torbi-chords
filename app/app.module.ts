@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { AppComponent }  from './app.component';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
+import { SongEditorView } from './views/song-editor.view'
+
 import {
   Bar, 
   LineBar, 
@@ -29,7 +32,8 @@ import { LyricSongView } from './views/lyric-song.view'
 import { routing } from './app.routing';
 
 @NgModule({
-  imports:      [ 
+  imports:      [
+    MaterialModule.forRoot(), 
     BrowserModule, 
     FormsModule,
     HttpModule,
@@ -41,6 +45,7 @@ import { routing } from './app.routing';
     CreateBookView,
     CreateSongView,
     LyricSongView,
+    SongEditorView,
     AppComponent, 
     Bar, 
     LineBar, 

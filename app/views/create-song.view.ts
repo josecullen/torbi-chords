@@ -12,13 +12,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
     <a routerLink="/home">Home</a>
   </header>  
   <section>
-        <label>Título</label>
-        <input [(ngModel)]="song.title">
-        <label>Autor</label>
-        <input [(ngModel)]="song.author">
-        <textarea [(ngModel)]="song.raw" rows="20"></textarea>
-        <button type="submit" (click)="save() ">Guardar</button>
-        <button *ngIf="song._id !== ''" (click)="delete() ">Eliminar</button>
+    <label>Título</label>
+    <input [(ngModel)]="song.title">
+    <label>Autor</label>
+    <input [(ngModel)]="song.author">
+    <textarea [(ngModel)]="song.raw" rows="20"></textarea>
+    <button type="submit" (click)="save() ">Guardar</button>
+    <button *ngIf="song._id !== ''" (click)="delete() ">Eliminar</button>
   </section>
   <footer>
     <div>
@@ -30,36 +30,31 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 </div>
 
 <div *ngIf="preview" class="container">
-<header>
-    <a (click)="setPreview(false)">Preview</a>
-</header>
-
-
-<section>
-  <song [name]="previewSong.title">
-    <section-song *ngFor="let section of previewSong.sections" [description]="section.title">
-      <line-bar *ngFor="let line of section.lines" [style.width]="calculateWidth(line)">
-        <instructions>
-          <bar-no-border *ngFor="let instruction of line.instructions">
-            <chords *ngIf="instruction.hasInstruction">
-              <condition [condition]="instruction.condition"></condition>
-            </chords>
-          </bar-no-border>
-        </instructions>
-        <bars>
-          <bar [type]="bar.type" *ngFor="let bar of line.bars">
-            <chords>
-              <quarter-note *ngFor="let chord of bar.chords" [note]="chord"></quarter-note>
-            </chords>
-          </bar>
-        </bars>
-      </line-bar>
-    </section-song>
-  </song>  
-</section>
-
-
-
+  <header>
+      <a (click)="setPreview(false)">Preview</a>
+  </header>
+  <section>
+    <song [name]="previewSong.title">
+      <section-song *ngFor="let section of previewSong.sections" [description]="section.title">
+        <line-bar *ngFor="let line of section.lines" [style.width]="calculateWidth(line)">
+          <instructions>
+            <bar-no-border *ngFor="let instruction of line.instructions">
+              <chords *ngIf="instruction.hasInstruction">
+                <condition [condition]="instruction.condition"></condition>
+              </chords>
+            </bar-no-border>
+          </instructions>
+          <bars>
+            <bar [type]="bar.type" *ngFor="let bar of line.bars">
+              <chords>
+                <quarter-note *ngFor="let chord of bar.chords" [note]="chord"></quarter-note>
+              </chords>
+            </bar>
+          </bars>
+        </line-bar>
+      </section-song>
+    </song>  
+  </section>
 </div>
 
 

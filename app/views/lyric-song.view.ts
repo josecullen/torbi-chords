@@ -154,6 +154,7 @@ export class LyricSongView implements OnInit{
                 }
                 
             })
+          console.log('preview', this.songPreview)
       }
       
   }

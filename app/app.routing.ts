@@ -4,6 +4,7 @@ import { HomeView } from './views/home.view'
 import { CreateBookView } from './views/create-book.view'
 import { CreateSongView } from './views/create-song.view'
 import { LyricSongView } from './views/lyric-song.view'
+import { SongEditorView } from './views/song-editor.view'
 
 const appRouting: Routes = [
 	{
@@ -21,6 +22,10 @@ const appRouting: Routes = [
 	{
 		path: 'song/create',
 		component: CreateSongView 
+	},
+	{
+		path: 'song/editor',
+		component: SongEditorView
 	},
 	{
 		path: 'song/:id',

@@ -13,6 +13,7 @@ export class Song {
         public title:string = '',
         public author: string = '',
         public raw:string = '',
+        public lyricRaw:string = '',
         public _id:string = ''
     ){}
 
