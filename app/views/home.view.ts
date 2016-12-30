@@ -22,7 +22,8 @@ import { BookService } from '../services/book.service'
     <div>
       <a routerLink="/book/create">Crear Libro</a>
       <a routerLink="/song/create">Crear Canción</a>
-      <a routerLink="/lyric-song/create">Crear Letra y Acordes</a>
+      <a routerLink="/song/editor">Editor de Canción</a>
+      <a routerLink="/lyric-song/create">Letra y Acordes</a>
     </div>
   </footer>
 `,

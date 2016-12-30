@@ -10,10 +10,6 @@ import { ChordConverter, ChordSong } from '../chords/chords.converter'
   <header></header>
   <section class="section-main">
     <aside class="editor">
-        <md-toolbar>
-            <button md-button (click)="type = 'lyric' ">Letra</button>
-            <button md-button (click)="type = 'bar'" >Compases</button>
-        </md-toolbar>
         <nav>
             <md-input-container>
                 <input md-input placeholder="Title">
@@ -23,6 +19,37 @@ import { ChordConverter, ChordSong } from '../chords/chords.converter'
                 <input md-input placeholder="Author">
             </md-input-container>
         </nav>
+        
+        <md-tab-group (selectChange)="tabChange($event)">
+            <md-tab label="Letra">
+                letra
+                <section class="section-editor">
+                    <textarea 
+                        class="textarea" 
+                        (ngModelChange)="convertLyric()" 
+                        [(ngModel)]="song.lyricRaw" rows="20">
+                    </textarea>
+                </section>
+            </md-tab>
+            <md-tab label="Compases">
+            compases
+                <section class="section-editor">
+                    <textarea 
+                        class="textarea" 
+                        (ngModelChange)="convert()" 
+                        [(ngModel)]="song.raw" rows="20">
+                    </textarea>
+                </section>
+            </md-tab>
+        </md-tab-group>
+
+<!--
+        <md-toolbar>
+            <button md-button (click)="type = 'lyric' ">Letra</button>
+            <button md-button (click)="type = 'bar'" >Compases</button>
+        </md-toolbar>
+    
+        
         <section class="section-editor">
             <textarea 
                 *ngIf="type === 'bar'"
@@ -37,6 +64,7 @@ import { ChordConverter, ChordSong } from '../chords/chords.converter'
                 [(ngModel)]="song.lyricRaw" rows="20">
             </textarea>
         </section>
+        -->
     </aside>
     <aside class="preview">
         <section class="section-preview">
@@ -177,19 +205,19 @@ footer {
 }
 
 .chord-left-1 {
-    left: -1.8em;
+    left: -1.6em;
 }
 
 .chord-left-2 {
-    left: -2.6em;
+    left: -2.2em;
 }
 
 .chord-left-3 {
-    left: -3.4em;
+    left: -2.8em;
 }
 
 .chord-left-4 {
-    left: -4.2em;
+    left: -3.4em;
 }
 
 .chord {
@@ -220,13 +248,18 @@ export class SongEditorView implements OnInit{
     song:Song = new Song()
     previewSong:ChordSong = new ChordSong()
     lyricPreview:Array<any> = []
-    type:string = 'bar'
+    type:string = 'lyric'
 
     ngOnInit(){}
   
     convert(){
       this.previewSong = ChordConverter.convert(this.song.raw)
       console.log(this.previewSong)
+    }
+
+    tabChange(selection:any){
+        console.log(selection)
+        this.type = selection.index === 0 ? 'lyric' : 'bar'
     }
 
     convertLyric(){
