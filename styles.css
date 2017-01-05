@@ -1,5 +1,9 @@
+body {
+  margin : 0;
+}
 
-body{
+
+/*body{
   font-size: large;
   font-family: cursive;
 }
@@ -35,19 +39,18 @@ chords {
   width: 90%;
   display: flex;
   justify-content: space-between;
-}
-
+}*/
+/*
 section {
-  /*width: 95%;*/
   padding: 5px;
   padding-bottom: 10px;
   border-bottom: 1px dashed;
   background-color: #EEE; 
-}
+}*/
 
-line-bar {
+/*line-bar {
   width: 100%;
-}
+}*/
 
 
 

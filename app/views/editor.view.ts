@@ -11,13 +11,26 @@ import { BookService } from '../services/book.service'
         <span>Right Aligned Text</span>
       </md-toolbar>
       <div [fxLayout]="'column'" class="section fill-height fill-children">
-            <md-card fxFlex="65">1</md-card>
           <div fxFlex class="grow fill-height">
             <div [fxLayout]="'row'" class="my-creations grow">
-              <md-card fxFlex="15" class="card-left">pub</md-card>
-              <md-card fxFlex="30" class="card-left card-right">2</md-card>
-              <md-card fxFlex="30" class="card-left card-right">3</md-card>
-              <md-card fxFlex="25" class="card-right">4</md-card>
+              <md-card fxFlex="50" class="card-left">
+                <md-card-content>
+                    <md-tab-group>
+                        <md-tab label="Letra y Acordes">
+                            <md-input-container style="width:100%">
+                                <textarea 
+                                    md-input 
+                                    md-autosize
+                                    style="width:100%" 
+                                    [(ngModel)]="exampleText"></textarea>
+                            </md-input-container>
+                        </md-tab>
+                        <md-tab label="Compases"></md-tab>
+                        <md-tab label="Tabs y Partituras"></md-tab>
+                    </md-tab-group>
+                </md-card-content>
+              </md-card>
+              <md-card fxFlex="50" class="card-left card-right">preview</md-card>
             </div>
           </div>
       </div>
@@ -89,17 +102,11 @@ import { BookService } from '../services/book.service'
   `]
 
 })
-export class HomeView implements OnInit{ 
+export class EditorView implements OnInit{ 
   songs:Array<Song> = []
   books:Array<SongBook> = []
   direction = "row";
   
-
-   toggleDirection() {
-     let next = (DIRECTIONS.indexOf(this.direction) +1 ) % DIRECTIONS.length;
-     this.direction = DIRECTIONS[next];
-   }
-
   constructor(
     private songService:SongService,
     private bookService:BookService){

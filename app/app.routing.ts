@@ -5,11 +5,16 @@ import { CreateBookView } from './views/create-book.view'
 import { CreateSongView } from './views/create-song.view'
 import { LyricSongView } from './views/lyric-song.view'
 import { SongEditorView } from './views/song-editor.view'
+import { EditorView } from './views/editor.view'
 
 const appRouting: Routes = [
 	{
 		path: 'home',
 		component: HomeView
+	},
+	{
+		path: 'editor',
+		component: EditorView
 	},
 	{
 		path: 'book/create',

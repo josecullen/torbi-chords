@@ -1,0 +1,25 @@
+0 - Bots
+    - Bot que toma de lacuerda y pasa a nuestro formato
+    - Bot que toma una tab y la pasa a formato vextab.
+
+1- Buscador:
+    - Simple: Debe encontrar la canción según título o autor
+    - Avanzado: Debe encontrar según acordes y géneros ingresados. 
+                Debe transportar los acordes y verificar si en otra tonalidad funcionan.
+    - Funcionalidad "Sólo estos acordes"
+
+2- Edición de canción   
+    - Debe haber una sintaxis para escribir letra y acordes.
+    - Debe haber un modo de especificar que una parte no tiene letra
+    - Se debe poder especificar sección. 
+    - Se debe poder poner formato de compases y acordes.
+    - Se debe poder agregar tabs, a partir de ids.
+    
+
+3- Visualización de canción 
+    - Se debe poder añadir y quitar acordes y tabs.
+    - Se debe poder ajustar el tamaño de la letra a la pantalla y especificar cantidad 
+      de estrofas.
+    - Se debe poder "discutir" un acorde, figurando el de mayor cantidad de votos.
+      En caso de empate, gana el original. 
+    - Se debe poder exportar a PDF o Html.

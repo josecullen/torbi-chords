@@ -26,14 +26,17 @@ import { SongService } from './services/song.service'
 import { BookService } from './services/book.service'
 
 import { HomeView } from './views/home.view'
+import { EditorView } from './views/editor.view'
 import { CreateBookView } from './views/create-book.view'
 import { CreateSongView } from './views/create-song.view'
 import { LyricSongView } from './views/lyric-song.view'
 import { routing } from './app.routing';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   imports:      [
     MaterialModule.forRoot(), 
+    FlexLayoutModule.forRoot(),
     BrowserModule, 
     FormsModule,
     HttpModule,
@@ -42,6 +45,7 @@ import { routing } from './app.routing';
   ],
   declarations: [
     HomeView, 
+    EditorView,
     CreateBookView,
     CreateSongView,
     LyricSongView,
