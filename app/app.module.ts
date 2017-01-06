@@ -7,6 +7,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { SongEditorView } from './views/song-editor.view'
 
+import { LyricChordEditor} from './components/lyric-chord.editor.component'
+
 import {
   Bar, 
   LineBar, 
@@ -48,6 +50,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     EditorView,
     CreateBookView,
     CreateSongView,
+    LyricChordEditor,
     LyricSongView,
     SongEditorView,
     AppComponent, 

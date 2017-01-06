@@ -17,20 +17,35 @@ import { BookService } from '../services/book.service'
                 <md-card-content>
                     <md-tab-group>
                         <md-tab label="Letra y Acordes">
-                            <md-input-container style="width:100%">
-                                <textarea 
-                                    md-input 
-                                    md-autosize
-                                    style="width:100%" 
-                                    [(ngModel)]="exampleText"></textarea>
-                            </md-input-container>
+                            <lyric-chord-editor
+                              (songChange)="onLyricChordChange($event)"></lyric-chord-editor>
                         </md-tab>
                         <md-tab label="Compases"></md-tab>
                         <md-tab label="Tabs y Partituras"></md-tab>
                     </md-tab-group>
                 </md-card-content>
               </md-card>
-              <md-card fxFlex="50" class="card-left card-right">preview</md-card>
+              <md-card fxFlex="50" class="card-left card-right">
+                <div>
+                  <div *ngFor="let section of lyricChordConverted">
+                    <h3>{{section.name}}</h3>
+                    <p *ngFor="let line of section.lines">  
+                      <span *ngFor="let segment of line; let i = index">
+                          <span 
+                              class="text" 
+                              [ngClass]="'text-left-'+i">{{segment.text}}</span>
+                          <span 
+                              class="chord"
+                              [ngClass]="'chord-left-'+i"
+                              *ngIf="segment.chord !== undefined">{{segment.chord}}</span>
+                      </span>
+                    </p>  
+                  </div>
+                  
+
+                
+                </div>
+              </md-card>
             </div>
           </div>
       </div>
@@ -96,6 +111,85 @@ import { BookService } from '../services/book.service'
     .example-fill-remaining-space {
       flex: 1 1 auto;
     }
+
+
+
+
+
+
+
+
+
+.text-left-1 {
+    left: -0.6em;
+}
+
+.text-left-2 {
+    left: -1.2em;
+}
+
+.text-left-3 {
+    left: -1.8em;
+}
+
+.text-left-4 {
+    left: -2.4em;
+}
+
+.chord-left-0 {
+    left: -1em;
+}
+
+.chord-left-1 {
+    left: -1.6em;
+}
+
+.chord-left-2 {
+    left: -2.2em;
+}
+
+.chord-left-3 {
+    left: -2.8em;
+}
+
+.chord-left-4 {
+    left: -3.4em;
+}
+
+.chord {
+    position: relative;
+    top: -1em;
+    display:inline-block; 
+    width: 0;
+    overflow:visible; 
+    color:#00F;
+    font-weight:bold;
+    font-family: Arial;
+    text-decoration: none;
+}
+  
+.text {
+    position: relative;
+    white-space:pre;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
 
@@ -106,7 +200,8 @@ export class EditorView implements OnInit{
   songs:Array<Song> = []
   books:Array<SongBook> = []
   direction = "row";
-  
+  lyricChordConverted:any
+
   constructor(
     private songService:SongService,
     private bookService:BookService){
@@ -115,6 +210,10 @@ export class EditorView implements OnInit{
 
   ngOnInit(){
    
+  }
+
+  onLyricChordChange(newVersion:any){
+    this.lyricChordConverted = newVersion
   }
 
 
