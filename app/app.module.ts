@@ -8,7 +8,8 @@ import { MaterialModule } from '@angular/material';
 import { SongEditorView } from './views/song-editor.view'
 
 import { LyricChordEditor} from './components/lyric-chord.editor.component'
-
+import { TabEditor } from './components/tab.editor.component'
+import { VexTabDirective} from './directives/vextab.directive'
 import {
   Bar, 
   LineBar, 
@@ -51,6 +52,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     CreateBookView,
     CreateSongView,
     LyricChordEditor,
+    TabEditor,
     LyricSongView,
     SongEditorView,
     AppComponent, 
@@ -66,7 +68,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     Condition,
     BarNoBorder,
     Section,
-    Song
+    Song,
+    VexTabDirective
   ],
   providers: [
     SongService,

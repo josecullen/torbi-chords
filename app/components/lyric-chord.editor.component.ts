@@ -32,7 +32,7 @@ export class LyricChordEditor{
             .split('\n')
             .forEach(lineRaw => {
                 if(lineRaw.trim() !== ''){
-                    if(lineRaw.includes("section(")){
+                    if(lineRaw.includes("section(") && lineRaw.includes(")")){
                         let sectionArr = lineRaw.match(/section\((.*?)\)/)
                         let sectionName = ""
                         if(sectionArr.length > 1){
@@ -42,7 +42,8 @@ export class LyricChordEditor{
                             name: sectionName,
                             lines: []
                         })
-                    } else if(this.lyricPreview.length > 0){
+                    } 
+                    else if(this.lyricPreview.length > 0){
                         let line:Array<any> = []
                         while(lineRaw.includes('[') && lineRaw.includes(']')){
                             let beginChord = lineRaw.indexOf('[')
@@ -62,7 +63,6 @@ export class LyricChordEditor{
                     
                 }    
             })
-        console.log('lyricPreview', this.lyricPreview)
         this.songChange.emit(this.lyricPreview)
     }
 
