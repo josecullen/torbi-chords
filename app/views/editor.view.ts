@@ -5,11 +5,16 @@ import { BookService } from '../services/book.service'
 @Component({
   template: `
     <div class="container fill-height">
-      <md-toolbar color="primary">
+      <md-toolbar color="accent">
         <span>Application Title</span>
         <span class="example-fill-remaining-space"></span>
         <span>Right Aligned Text</span>
       </md-toolbar>
+      <md-toolbar>
+        <md-input md-input placeholder="Title" [(ngModel)]="song.title" ></md-input>
+        <md-input md-input placeholder="Author" [(ngModel)]="song.author"></md-input>
+      </md-toolbar>
+        
       <div [fxLayout]="'column'" class="section fill-height fill-children">
           <div fxFlex class="grow fill-height">
             <div [fxLayout]="'row'" class="my-creations grow">
@@ -26,25 +31,32 @@ import { BookService } from '../services/book.service'
                 </md-card-content>
               </md-card>
               <md-card fxFlex="50" class="card-left card-right">
-                <div>
-                  <div *ngFor="let section of lyricChordConverted">
-                    <h3>{{section.name}}</h3>
-                    <p *ngFor="let line of section.lines">  
-                      <span *ngFor="let segment of line; let i = index">
-                          <span 
-                              class="text" 
-                              [ngClass]="'text-left-'+i">{{segment.text}}</span>
-                          <span 
-                              class="chord"
-                              [ngClass]="'chord-left-'+i"
-                              *ngIf="segment.chord !== undefined">{{segment.chord}}</span>
-                      </span>
-                    </p>  
-                  </div>
-                  
+                <md-card-header>
+                  <md-card-title>{{song.title}}</md-card-title>
+                  <md-card-subtitle>{{song.author}}</md-card-subtitle>
+                </md-card-header>
+                <md-card-content style="height:80%">
 
-                
-                </div>
+                  <div style="height:100%; overflow:auto">
+                    <div *ngFor="let section of lyricChordConverted">
+                      <h3>{{section.name}}</h3>
+                      <p *ngFor="let line of section.lines">  
+                        <span *ngFor="let segment of line; let i = index">
+                            <span 
+                                class="text" 
+                                [ngClass]="'text-left-'+i">{{segment.text}}</span>
+                            <span 
+                                class="chord"
+                                [ngClass]="'chord-left-'+i"
+                                *ngIf="segment.chord !== undefined">{{segment.chord}}</span>
+                        </span>
+                      </p>  
+                    </div>
+                    
+
+                  
+                  </div>
+                </md-card-content>
               </md-card>
             </div>
           </div>
@@ -197,8 +209,7 @@ import { BookService } from '../services/book.service'
 
 })
 export class EditorView implements OnInit{ 
-  songs:Array<Song> = []
-  books:Array<SongBook> = []
+  song:Song = new Song()
   direction = "row";
   lyricChordConverted:any
 
