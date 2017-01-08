@@ -9,7 +9,13 @@ import { Component, Input } from '@angular/core';
             <div *ngIf="isTab(line)">
                 <canvas vextab="{{getTabString(line)}}"></canvas>
             </div>    
-            <p *ngIf="!isTab(line)">  
+            <p *ngIf="isChord(line)" >
+                <span
+                    class="inline-chord"
+                    [ngClass]="'chord-left-'+i"
+                    *ngFor="let chord of getChordArray(line)">{{chord}}</span>
+            </p>
+            <p *ngIf="!isTab(line) && !isChord(line)">  
                 <span *ngFor="let segment of line; let i = index">
                     <span 
                         class="text" 
@@ -46,6 +52,14 @@ import { Component, Input } from '@angular/core';
     font-family: Arial;
     text-decoration: none;
 }
+
+.inline-chord {
+    color: #00F;
+    font-weight: bold;
+    font-family: Arial;
+    text-decoration: none;
+    padding-right: 10px;
+}
   
 .text {
     position: relative;
@@ -57,9 +71,46 @@ import { Component, Input } from '@angular/core';
 })
 export class LyricChordPreview { 
     @Input() lyricChord:any
+    @Input() tabs:any
 
     isTab(line:Array<any>){
         return line.some(segment => segment.text.includes('tab(') && segment.text.includes(')'))
+    }
+
+    isChord(line:Array<any>){
+        return line.some(segment => segment.text.includes('chords(') && segment.text.includes(')'))
+    }
+
+    getTabString(line:any){
+        let tab:any = ""
+        if(line !== undefined){
+            let matchSegment = line.find((segment:any) => segment.text.includes('tab(') && segment.text.includes(')'))
+            let tabArr = matchSegment.text.match(/tab\((.*?)\)/)
+            let tabName = ""
+            
+            if(tabArr.length > 1){
+                tabName = tabArr[1]
+                if(this.tabs){
+                    tab = this.tabs.find((tab:any) => tab.name === tabName).vextab || ""
+                } else {
+                    return ""
+                }
+            }
+        }
+        return tab
+    }
+
+    getChordArray(line:any){
+        let result:Array<string> = new Array()
+        if(line !== undefined){
+            let matchSegment = line.find((segment:any) => segment.text.includes('chords(') && segment.text.includes(')'))
+            let chordsArr = matchSegment.text.match(/chords\((.*?)\)/)
+            if(chordsArr.length > 1){
+                result = chordsArr[1].split(' ')
+                console.log(result)
+            }
+        }
+        return result
     }
 
 }

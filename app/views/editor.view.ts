@@ -55,7 +55,9 @@ import { ChordSong } from '../chords/chords.converter'
                   
                   <div style="height:100%; overflow:auto">
                     <div *ngIf="tabIndex === 0">
-                      <lyric-chord-preview [lyricChord]="lyricChordConverted"></lyric-chord-preview>
+                      <lyric-chord-preview 
+                        [lyricChord]="lyricChordConverted"
+                        [tabs]="tabConverted"></lyric-chord-preview>
                     </div>
                   
                     <div *ngIf="tabIndex === 1"> 
@@ -176,24 +178,7 @@ export class EditorView implements OnInit{
     this.tabConverted = newVersion
   }
 
-  getTabString(line:any){
-    let tab:any = ""
-    if(line !== undefined){
-      let matchSegment = line.find((segment:any) => segment.text.includes('tab(') && segment.text.includes(')'))
-      let tabArr = matchSegment.text.match(/tab\((.*?)\)/)
-      let tabName = ""
-      
-      if(tabArr.length > 1){
-          tabName = tabArr[1]
-          if(this.tabConverted){
-            tab = this.tabConverted.find((tab:any) => tab.name === tabName).vextab || ""
-          } else {
-            return ""
-          }
-      }
-    }
-    return tab
-  }
+  
 
 
 }
