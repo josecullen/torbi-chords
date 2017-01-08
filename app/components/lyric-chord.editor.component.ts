@@ -16,7 +16,7 @@ import { BookService } from '../services/book.service'
   `
 })
 export class LyricChordEditor{ 
-  raw:string
+  raw:string = ""
   lyricPreview:Array<any> = []
   @Output() songChange:EventEmitter<any> = new EventEmitter()
 

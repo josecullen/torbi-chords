@@ -44,11 +44,13 @@ import { ChordSong } from '../chords/chords.converter'
               <md-card fxFlex="50" class="card-left card-right">
                 
                 <md-card-header>
-                  <md-card-title>{{song.title}}</md-card-title>
+                  <md-card-title>
+                    <h2>{{song.title}}</h2>
+                  </md-card-title>
                   <md-card-subtitle>{{song.author}}</md-card-subtitle>
                 </md-card-header>
                 
-                <md-card-content style="height:80%">
+                <md-card-content style="height:80%; margin-left:8px;">
                   
                   
                   <div style="height:100%; overflow:auto">
@@ -91,6 +93,14 @@ import { ChordSong } from '../chords/chords.converter'
       margin-top: 5px;
       margin-bottom: 5px;
       min-height: 100px;
+    }
+
+    md-card-title {
+      margin-bottom: 8px;
+    }
+
+    md-card-title > h2 {
+      margin-bottom: 0px;
     }
 
     .grow {
