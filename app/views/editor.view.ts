@@ -159,7 +159,6 @@ export class EditorView implements OnInit{
   }
 
   onBarsChange(newVersion:ChordSong){
-    console.log(newVersion)
     this.barsConverted = newVersion || new ChordSong()
   }
 

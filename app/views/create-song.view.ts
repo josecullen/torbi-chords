@@ -133,7 +133,6 @@ export class CreateSongView implements OnInit{
           .delete(this.song._id)
           .subscribe(
             result => {
-              console.log("ok!")
               this.router.navigateByUrl('/home')
             },
             err => console.error(err)

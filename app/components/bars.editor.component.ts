@@ -28,7 +28,6 @@ export class BarsEditor{
 
     convert(){
         this.barsPreview = ChordConverter.convert(this.raw)
-        console.log('barsPreview', this.barsPreview)
         this.songChange.emit(this.barsPreview)
     }
 

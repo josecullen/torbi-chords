@@ -61,6 +61,10 @@ instructions, quarter-note {
     justify-content: space-between;
 } 
 
+section-song {
+  width: 99%;
+}
+
 chords {
   width: 90%;
   display: flex;

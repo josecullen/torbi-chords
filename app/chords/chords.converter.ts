@@ -33,7 +33,6 @@ export class ChordConverter {
             let match:any = str.match( /"(.*?)"/ )
             
             ret = match !== null ? match[1] : ""
-            console.log('str',str,'ret', ret)
         } else {
            ret = str;
         }
