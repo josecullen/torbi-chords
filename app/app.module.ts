@@ -8,6 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { SongEditorView } from './views/song-editor.view'
 
 import { LyricChordEditor} from './components/lyric-chord.editor.component'
+import { BarsEditor } from './components/bars.editor.component'
 import { TabEditor } from './components/tab.editor.component'
 import { VexTabDirective} from './directives/vextab.directive'
 import {
@@ -33,8 +34,11 @@ import { EditorView } from './views/editor.view'
 import { CreateBookView } from './views/create-book.view'
 import { CreateSongView } from './views/create-song.view'
 import { LyricSongView } from './views/lyric-song.view'
+import { LyricChordPreview } from './components/lyric-chord.preview.component'
+import { BarsPreview } from './components/bars.preview.component'
+import { TabPreview } from './components/tab.preview.component'
 import { routing } from './app.routing';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   imports:      [
@@ -52,7 +56,11 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     CreateBookView,
     CreateSongView,
     LyricChordEditor,
+    LyricChordPreview,
+    BarsEditor,
+    BarsPreview,
     TabEditor,
+    TabPreview,
     LyricSongView,
     SongEditorView,
     AppComponent, 

@@ -1,5 +1,5 @@
 export class ChordConverter {
-    static chordSong:ChordSong;
+    static chordSong:ChordSong
 
     static convert(rawSong:string):ChordSong{
         this.chordSong = new ChordSong()
