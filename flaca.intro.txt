@@ -1,0 +1,13 @@
+tab(Intro)
+tabstave
+notes: q 3-0/2 2-0-2/3 0/2 | 4-0/2 2-0-2/3 0/2
+text :h, G , , ,B7  
+tabstave
+notes: q 5-0/2 2-0-2/3 0/2 | 3-0-0/2 0/2
+text :h, Em , , ,C
+tabstave
+notes: q 3-0/2 2-0-2/3 0/2 | 3-0/2 2/3 
+text :h, G , , ,D
+tabstave
+notes: q 0/3 | t0/3
+text :h, G                                                                            D  

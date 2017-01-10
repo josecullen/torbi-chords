@@ -20,13 +20,15 @@ import { ChordSong } from '../chords/chords.converter'
       <div [fxLayout]="'column'" class="section fill-height fill-children">
           <div fxFlex class="grow fill-height">
             <div [fxLayout]="'row'" class="my-creations grow">
-              <md-card fxFlex="50" class="card-left">
+              <md-card fxFlex="50" class="card-left" style="overflow:auto">
                 <md-card-content>
                     <md-tab-group [(selectedIndex)]="tabIndex">
                         <md-tab label="Letra y Acordes">
-                            <lyric-chord-editor
-                              (songChange)="onLyricChordChange($event)">
-                            </lyric-chord-editor>
+                            <div style="height:100%; overflow:auto">
+                              <lyric-chord-editor
+                                (songChange)="onLyricChordChange($event)">
+                              </lyric-chord-editor>
+                            </div>
                         </md-tab>
                         <md-tab label="Compases">
                             <bars-editor

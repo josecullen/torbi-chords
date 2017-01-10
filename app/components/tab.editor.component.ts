@@ -16,7 +16,7 @@ import { BookService } from '../services/book.service'
   `
 })
 export class TabEditor{ 
-  raw:string
+  raw:string = ""
   tabPreview:Array<any> = []
   @Output() tabChange:EventEmitter<any> = new EventEmitter()
 
@@ -33,7 +33,7 @@ export class TabEditor{
             if(lineRaw.includes('tab(')){
                 let tabArr = lineRaw.match(/tab\((.*?)\)/)
                 let tabName = ""
-                if(tabArr.length > 1){
+                if(tabArr && tabArr.length > 1){
                     tabName = tabArr[1]
                 }
                 this.tabPreview.push({

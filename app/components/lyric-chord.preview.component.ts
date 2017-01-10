@@ -91,7 +91,10 @@ export class LyricChordPreview {
             if(tabArr.length > 1){
                 tabName = tabArr[1]
                 if(this.tabs){
-                    tab = this.tabs.find((tab:any) => tab.name === tabName).vextab || ""
+                    tab = this.tabs.find((tab:any) => tab.name === tabName) || ""
+                    if(tab){
+                        tab = tab.vextab
+                    }
                 } else {
                     return ""
                 }
@@ -107,7 +110,6 @@ export class LyricChordPreview {
             let chordsArr = matchSegment.text.match(/chords\((.*?)\)/)
             if(chordsArr.length > 1){
                 result = chordsArr[1].split(' ')
-                console.log(result)
             }
         }
         return result

@@ -1,0 +1,11 @@
+section "Intro"
+|G|B7|Em|C|
+|G|D|G|D7|
+
+section "A"
+|: G|B7|Em|C|
+|G|D|G|D7 :|
+
+section "B"
+|: G|B7|Em|C|
+|G|D|G|D7 :|
