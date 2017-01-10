@@ -5,7 +5,6 @@ import { CommonModule, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/
 import { AppComponent }  from './app.component';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { SongEditorView } from './views/song-editor.view'
 
 import { LyricChordEditor} from './components/lyric-chord.editor.component'
 import { BarsEditor } from './components/bars.editor.component'
@@ -31,9 +30,6 @@ import { BookService } from './services/book.service'
 
 import { HomeView } from './views/home.view'
 import { EditorView } from './views/editor.view'
-import { CreateBookView } from './views/create-book.view'
-import { CreateSongView } from './views/create-song.view'
-import { LyricSongView } from './views/lyric-song.view'
 import { LyricChordPreview } from './components/lyric-chord.preview.component'
 import { BarsPreview } from './components/bars.preview.component'
 import { TabPreview } from './components/tab.preview.component'
@@ -53,16 +49,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   declarations: [
     HomeView, 
     EditorView,
-    CreateBookView,
-    CreateSongView,
     LyricChordEditor,
     LyricChordPreview,
     BarsEditor,
     BarsPreview,
     TabEditor,
     TabPreview,
-    LyricSongView,
-    SongEditorView,
     AppComponent, 
     Bar, 
     LineBar, 

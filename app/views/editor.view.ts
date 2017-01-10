@@ -13,10 +13,9 @@ import { ChordSong } from '../chords/chords.converter'
         <span>Right Aligned Text</span>
       </md-toolbar>
       <md-toolbar>
-        <md-input md-input placeholder="Title" [(ngModel)]="song.title" ></md-input>
-        <md-input md-input placeholder="Author" [(ngModel)]="song.author"></md-input>
+        <md-input placeholder="Title" [(ngModel)]="song.title" ></md-input>
+        <md-input placeholder="Author" [(ngModel)]="song.author"></md-input>
       </md-toolbar>
-        
       <div [fxLayout]="'column'" class="section fill-height fill-children">
           <div fxFlex class="grow fill-height">
             <div [fxLayout]="'row'" class="my-creations grow">

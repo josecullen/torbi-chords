@@ -2,6 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Song, SongBook } from '../models/models'
 import { SongService } from '../services/song.service'
 import { BookService } from '../services/book.service'
+import {DomSanitizer} from '@angular/platform-browser';
+import {MdIconRegistry} from '@angular/material';
+
+
 @Component({
   selector: 'lyric-chord-editor',
   template: `
@@ -19,6 +23,12 @@ export class LyricChordEditor{
   raw:string = ""
   lyricPreview:Array<any> = []
   @Output() songChange:EventEmitter<any> = new EventEmitter()
+
+  constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+        'image2',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/images/image.svg'));
+  }
 
   onTextChange(){
       this.convertLyric()
