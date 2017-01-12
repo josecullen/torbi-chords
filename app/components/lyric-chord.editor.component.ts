@@ -73,6 +73,7 @@ export class LyricChordEditor{
                     
                 }    
             })
+        console.log(JSON.stringify(this.lyricPreview))
         this.songChange.emit(this.lyricPreview)
     }
 

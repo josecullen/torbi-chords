@@ -10,6 +10,7 @@ import { LyricChordEditor} from './components/lyric-chord.editor.component'
 import { BarsEditor } from './components/bars.editor.component'
 import { TabEditor } from './components/tab.editor.component'
 import { VexTabDirective} from './directives/vextab.directive'
+import { FitTextDirective} from './directives/fit-text.directive'
 import {
   Bar, 
   LineBar, 
@@ -30,11 +31,13 @@ import { BookService } from './services/book.service'
 
 import { HomeView } from './views/home.view'
 import { EditorView } from './views/editor.view'
+import { SongVisualizatorView } from './views/song-visualizator.view'
 import { LyricChordPreview } from './components/lyric-chord.preview.component'
 import { BarsPreview } from './components/bars.preview.component'
 import { TabPreview } from './components/tab.preview.component'
 import { routing } from './app.routing';
 import { FlexLayoutModule } from "@angular/flex-layout";
+
 
 @NgModule({
   imports:      [
@@ -55,6 +58,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     BarsPreview,
     TabEditor,
     TabPreview,
+    SongVisualizatorView,
     AppComponent, 
     Bar, 
     LineBar, 
@@ -69,7 +73,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     BarNoBorder,
     Section,
     Song,
-    VexTabDirective
+    VexTabDirective,
+    FitTextDirective
   ],
   providers: [
     SongService,

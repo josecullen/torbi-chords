@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'lyric-chord-preview',
   template: `
+  <div style="display:table-row-group; white-space: nowrap;">
     <div *ngFor="let section of lyricChord" >
         <h3>{{section.name}}</h3>
         <div *ngFor="let line of section.lines">
@@ -28,6 +29,7 @@ import { Component, Input } from '@angular/core';
             </p>
         </div>  
     </div>
+</div>
   `,
   styles: [`
 .text-left-1 {   left: -0.6em; }

@@ -2,6 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeView } from './views/home.view'
 import { EditorView } from './views/editor.view'
+import { SongVisualizatorView } from './views/song-visualizator.view'
 
 const appRouting: Routes = [
 	{
@@ -11,6 +12,10 @@ const appRouting: Routes = [
 	{
 		path: 'editor',
 		component: EditorView
+	},
+	{
+		path: 'visualizator',
+		component: SongVisualizatorView
 	},
 	{
 		path: '',

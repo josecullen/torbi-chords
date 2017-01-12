@@ -58,7 +58,8 @@ import { ChordSong } from '../chords/chords.converter'
                     <div *ngIf="tabIndex === 0">
                       <lyric-chord-preview 
                         [lyricChord]="lyricChordConverted"
-                        [tabs]="tabConverted"></lyric-chord-preview>
+                        [tabs]="tabConverted">
+                      </lyric-chord-preview>
                     </div>
                   
                     <div *ngIf="tabIndex === 1"> 
