@@ -18,8 +18,7 @@ export class FitTextDirective {
             }, 3)
             
         } else {
-            this.entireSong.style.fontSize = (+this.entireSong.style.fontSize.split('px')[0] - 1) + 'px'
-            console.log(this.entireSong.style.fontSize)
+            this.entireSong.style.fontSize = (+this.entireSong.style.fontSize.split('px')[0] - 1) + 'px'   
         }
         
     }
@@ -33,6 +32,7 @@ export class FitTextDirective {
                 this.fitShrink()
             }, 5)
         }
+        
     }
 
     fit () {
@@ -44,7 +44,7 @@ export class FitTextDirective {
                 this.fitShrink()
             }
         }, 100)
-        
+        console.log(this.entireSong.style.fontSize)
     }    
 
     ngOnInit() {

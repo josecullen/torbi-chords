@@ -17,11 +17,12 @@ declare var fitText: any
         <a md-mini-fab (click)="splitSong(2)">2</a>
         <a md-mini-fab (click)="splitSong(3)">3</a>
         <a md-mini-fab (click)="splitSong(-1)">*</a>
+        
+        <input md-input [(ngModel)]="min">
+        <input md-input [(ngModel)]="max">
         <a md-mini-fab (click)="auto()">
           <md-icon>autorenew</md-icon>
         </a>
-        <input md-input [(ngModel)]="min">
-        <input md-input [(ngModel)]="max">
         <span class="example-fill-remaining-space"></span>
         <span>Right Aligned Text</span>
       </md-toolbar>
@@ -81,14 +82,14 @@ declare var fitText: any
 
 })
 export class SongVisualizatorView implements OnInit{ 
-  song :any = [{"name":"Intro","lines":[[{"text":"chords(G B7 Em C | G D G D7)"}]]},{"name":"A","lines":[[{"text":"Flaca","chord":"G"},{"text":", no me clave","chord":"B7"},{"text":"s tus puñale","chord":"Em"},{"text":"s"}],[{"text":"por la espalda","chord":"C"},{"text":", tan profundo","chord":"G"},{"text":""}],[{"text":"no me duele","chord":"D"},{"text":"n"}],[{"text":"no me hacen ma","chord":"G"},{"text":"l     ","chord":"D7"},{"text":""}]]},{"name":"A'","lines":[[{"text":"Lejo","chord":"G"},{"text":"s, en el centro","chord":"B7"},{"text":" de la tierra","chord":"Em"},{"text":""}],[{"text":"las raíce","chord":"C"},{"text":"s del amo","chord":"G"},{"text":"r"}],[{"text":"donde estaba","chord":"D"},{"text":"n "}],[{"text":"quedará","chord":"G"},{"text":"n    ","chord":"D7"},{"text":""}]]},{"name":"B","lines":[[{"text":"E","chord":"G"},{"text":"ntre 'no me olvides' "}],[{"text":"me dejé","chord":"B7"},{"text":" nuestros abriles olvida","chord":"Em"},{"text":"dos"}],[{"text":"en el fondo del placa","chord":"C"},{"text":"rd"}],[{"text":"Del cuarto de invita","chord":"G"},{"text":"dos."}],[{"text":"Eran tiempos dora","chord":"D"},{"text":"dos"}],[{"text":"un pasado mejo","chord":"G"},{"text":"r     ","chord":"D7"},{"text":""}]]}]
+  song :Array<any> = [{"name":"Intro","lines":[[{"text":"chords(G B7 Em C | G D G D7)"}]]},{"name":"A","lines":[[{"text":"Flaca","chord":"G"},{"text":", no me clave","chord":"B7"},{"text":"s tus puñale","chord":"Em"},{"text":"s"}],[{"text":"por la espalda","chord":"C"},{"text":", tan profundo","chord":"G"},{"text":""}],[{"text":"no me duele","chord":"D"},{"text":"n"}],[{"text":"no me hacen ma","chord":"G"},{"text":"l     ","chord":"D7"},{"text":""}]]},{"name":"A'","lines":[[{"text":"Lejo","chord":"G"},{"text":"s, en el centro","chord":"B7"},{"text":" de la tierra","chord":"Em"},{"text":""}],[{"text":"las raíce","chord":"C"},{"text":"s del amo","chord":"G"},{"text":"r"}],[{"text":"donde estaba","chord":"D"},{"text":"n "}],[{"text":"quedará","chord":"G"},{"text":"n    ","chord":"D7"},{"text":""}]]},{"name":"B","lines":[[{"text":"E","chord":"G"},{"text":"ntre 'no me olvides' "}],[{"text":"me dejé","chord":"B7"},{"text":" nuestros abriles olvida","chord":"Em"},{"text":"dos"}],[{"text":"en el fondo del placa","chord":"C"},{"text":"rd"}],[{"text":"Del cuarto de invita","chord":"G"},{"text":"dos."}],[{"text":"Eran tiempos dora","chord":"D"},{"text":"dos"}],[{"text":"un pasado mejo","chord":"G"},{"text":"r     ","chord":"D7"},{"text":""}]]}]
 
-  splitedSong:any = this.song
+  splitedSong:Array<any> = this.song
   sectionPerView:number
   offset:number = 0
   change:number = 0
-  min:number = 15
-  max:number = 18
+  min:number = 20
+  max:number = 28
 
   constructor(
     private iconRegistry: MdIconRegistry, 
@@ -128,6 +129,16 @@ export class SongVisualizatorView implements OnInit{
     this.splitedSong = (<Array<any>>this.song).slice(this.offset, this.offset + this.sectionPerView)
     this.change++
   }
+
+  onTextBigger(){
+    this.sectionPerView++
+    this.splitedSong = this.song.slice(this.offset, this.offset + this.sectionPerView)
+  }
+
+  onTextSmaller(){
+
+  }
+
 
 }
 
