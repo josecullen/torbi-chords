@@ -35,14 +35,17 @@ import { SongVisualizatorView } from './views/song-visualizator.view'
 import { LyricChordPreview } from './components/lyric-chord.preview.component'
 import { BarsPreview } from './components/bars.preview.component'
 import { TabPreview } from './components/tab.preview.component'
-import { routing } from './app.routing';
+import { routing, appRoutingProviders } from './app.routing';
 import { FlexLayoutModule } from "@angular/flex-layout";
+
+import { LoginRoutingModule }   from './modules/login-routing.module';
 
 
 @NgModule({
   imports:      [
     MaterialModule.forRoot(), 
     FlexLayoutModule.forRoot(),
+    LoginRoutingModule,
     BrowserModule, 
     FormsModule,
     HttpModule,
@@ -78,7 +81,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   ],
   providers: [
     SongService,
-    BookService
+    BookService,
+    appRoutingProviders
   ],
   bootstrap:    [ AppComponent ]
 })

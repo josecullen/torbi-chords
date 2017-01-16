@@ -14,7 +14,7 @@ import { BookService } from '../services/book.service'
             <md-card fxFlex="65">1</md-card>
           <div fxFlex class="grow fill-height">
             <div [fxLayout]="'row'" class="my-creations grow">
-              <md-card fxFlex="15" class="card-left">pub</md-card>
+              <md-card fxFlex="15" class="card-left">pubasdasdak</md-card>
               <md-card fxFlex="30" class="card-left card-right">2</md-card>
               <md-card fxFlex="30" class="card-left card-right">3</md-card>
               <md-card fxFlex="25" class="card-right">4</md-card>
